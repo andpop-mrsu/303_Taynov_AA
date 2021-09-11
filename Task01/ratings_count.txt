@@ -1,0 +1,3 @@
+MinId = 481, count = 31
+MaxId = 610, count = 1302
+
