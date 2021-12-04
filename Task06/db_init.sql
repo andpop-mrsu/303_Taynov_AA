@@ -61,7 +61,7 @@ INSERT INTO services_and_class_car ( service_id, class_car_id, duration, price) 
 (5, 2, 30, 190.00),
 (6, 2, 60, 150.00),
 
-(1, 2, 20, 100.00),
+(1, 3, 20, 100.00),
 (2, 3, 20, 120.00),
 (3, 3, 10, 110.00),
 (4, 3, 20, 150.00),
@@ -139,17 +139,19 @@ CREATE TABLE completed_services
 (
     service_id integer,
     master_id integer,
+    class_car_id integer,
     date datetime ,
+    FOREIGN key (class_car_id) REFERENCES class_car(id)
     foreign key (service_id) references services(id),
     foreign key (master_id) references masters(id)
 );
 
-INSERT INTO completed_services (service_id, master_id, date)
+INSERT INTO completed_services (service_id, class_car_id, master_id, date)
 values
-(1, 1, '2021-11-16'),
-(1, 2, '2021-11-14'),
-(1, 3, '2021-11-15'),
-(1, 4, '2021-11-20');
+(1,1, 1, '2021-11-16 12:13'),
+(1,2, 2, '2021-11-14 13:33'),
+(1,3, 3, '2021-11-15 13:00'),
+(1,5, 4, '2021-11-20 16:10');
 
 
 CREATE TABLE day_schedule
